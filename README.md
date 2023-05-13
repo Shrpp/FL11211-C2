@@ -3,6 +3,7 @@
 The blog will be divided by two sections:
 - Computer Architecture
 - Math
+
 Both will be written in English and Spanish. In order to fulfill the English assignment it will be possible switch between the two languages.  
 
 ## Technologies used
