@@ -1,19 +1,31 @@
-import supabase from "./init_supabase";
 import matter from "gray-matter";
+import supabase from "./init_supabase";
 
-export default async function getDataPost(post_name) {
-  const { data: blob, error } = await supabase.storage
-    .from("blog_storage")
-    .download(`post/${post_name}.md`);
+/**
+ * 
+ * @param {String} path 
+ * @returns {StorageError | Blob}
+ */
+export async function downloadMarkdownPost(path) {
+  try {
+    const { data, error } = await supabase.storage
+      .from("blog_storage")
+      .download(`post/${path}.md`);
 
-  if (error) {
-    console.log(error);
-  } else {
-    const blob_content = (await blob.text().then((content) => content))
-      .toString()
-      .trim();
-    const { data, content } = matter(blob_content);
-    console.log(data, content);
-    return { data, content}
+    console.debug(`path: ${path}`, `data: ${data}`, `error: ${error}`);
+    if (error) {
+      throw error;
+    }
+    return data;
+  } catch (error) {
+    console.debug(error);
   }
+}
+
+/** 
+ * @param {Blob} post_content
+ * @return 
+ */
+export async function getMetadataPost(post_content) {
+  console.log(post_content);
 }

@@ -1,8 +1,8 @@
-import Post from "../components/post";
+import { Post_miniature } from "../components/post";
 import supabase from "../utils/init_supabase";
-import Head from "next/head"
+import Head from "next/head";
 
-export default function Home({ last_post, error }) {
+export default function Home({ last_post }) {
   return (
     <>
       <Head>
@@ -13,15 +13,8 @@ export default function Home({ last_post, error }) {
           The Lasted Blog posted
         </h1>
         <div className="grid md:grid-cols-2 gap-2 place-items-center content-center h-full">
-          {last_post.slice(0, 4).map((post, index) => {
-            return (
-              <Post
-                key={index}
-                name={post.name}
-                short_description={post.short_description}
-                mode_miniature={true}
-              />
-            );
+          {last_post.slice(0, 4).map((post) => {
+            return <Post_miniature key={post.id} name={post.name} />;
           })}
         </div>
       </section>
