@@ -6,6 +6,8 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true }
     return config
   },
+  poweredByHeader: false,
+  reactStrictMode: true
 };
 
 module.exports = nextConfig;

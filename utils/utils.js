@@ -2,8 +2,8 @@ import matter from "gray-matter";
 import supabase from "./init_supabase";
 
 /**
- * 
- * @param {String} path 
+ *
+ * @param {String} path
  * @returns {StorageError | Blob}
  */
 export async function downloadMarkdownPost(path) {
@@ -22,10 +22,12 @@ export async function downloadMarkdownPost(path) {
   }
 }
 
-/** 
- * @param {Blob} post_content
- * @return 
+/**
+ * @param {string} post_content
+ * @return {{[key: string]: any, content: string}}
  */
-export async function getMetadataPost(post_content) {
-  console.log(post_content);
+export function getMetadataPost(post_content) {
+  const { data: metadata, content: content } = matter(post_content);
+  console.log(matter(post_content));
+  return { metadata, content };
 }

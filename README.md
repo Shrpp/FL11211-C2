@@ -10,6 +10,8 @@ Both will be written in English and Spanish. In order to fulfill the English ass
 - NextJs [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - TailwindCSS [Learn TailwindCSS](https://tailwindcss.com/docs/installation).
 - Supabase [The Open Source Firebase Alternative](https://supabase.com/).
+- React-Markdown [More about React-Markdown](https://github.com/remarkjs/react-markdown#readme) with plugin:
+- - remark-gfm [Learn more](https://github.com/remarkjs/remark-gfm)
 
 ## Getting Started
 
